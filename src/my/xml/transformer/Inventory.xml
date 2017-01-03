@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<INVENTORY>
+   <CATEGORY>
+      <CATNAME>Middle Ages</CATNAME>
+      <BOOK>
+         <TITLE>The Canterbury Tales</TITLE>
+         <AUTHOR>Geoffrey Chaucer</AUTHOR>
+         <BINDING>hardcover</BINDING>
+         <PAGES>692</PAGES>
+         <PRICE>$18.95</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>Piers Plowman</TITLE>
+         <AUTHOR>William Langland</AUTHOR>
+         <BINDING>trade paperback</BINDING>
+         <PAGES>385</PAGES>
+         <PRICE>$10.95</PRICE>
+      </BOOK>
+   </CATEGORY>
+   <CATEGORY>
+      <CATNAME>Renaissance</CATNAME>
+      <BOOK>
+         <TITLE>The Blazing World</TITLE>
+         <AUTHOR>Margaret Cavendish</AUTHOR>
+         <BINDING>trade paperback</BINDING>
+         <PAGES>225</PAGES>
+         <PRICE>$8.79</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>Oroonoko</TITLE>
+         <AUTHOR>Aphra Behn</AUTHOR>
+         <BINDING>mass market paperback</BINDING>
+         <PAGES>295</PAGES>
+         <PRICE>$4.95</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>Doctor Faustus</TITLE>
+         <AUTHOR>Christopher Marlowe</AUTHOR>
+         <BINDING>hardcover</BINDING>
+         <PAGES>472</PAGES>
+         <PRICE>$15.95</PRICE>
+      </BOOK>
+   </CATEGORY>
+   <CATEGORY>
+      <CATNAME>18th Century</CATNAME>
+      <BOOK>
+         <TITLE>Gulliver's Travels</TITLE>
+         <AUTHOR>Jonathan Swift</AUTHOR>
+         <BINDING>hardcover</BINDING>
+         <PAGES>324</PAGES>
+         <PRICE>$11.89</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>The History of Tom Jones: A Foundling</TITLE>
+         <AUTHOR>Henry Fielding</AUTHOR>
+         <BINDING>hardcover</BINDING>
+         <PAGES>438</PAGES>
+         <PRICE>$16.95</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>Love in Excess</TITLE>
+         <AUTHOR>Eliza Haywood</AUTHOR>
+         <BINDING>trade paperback</BINDING>
+         <PAGES>429</PAGES>
+         <PRICE>$12.95</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>Tristram Shandy</TITLE>
+         <AUTHOR>Laurence Sterne</AUTHOR>
+         <BINDING>hardcover</BINDING>
+         <PAGES>322</PAGES>
+         <PRICE>$9.49</PRICE>
+      </BOOK>
+   </CATEGORY>
+   <CATEGORY>
+      <CATNAME>19th Century</CATNAME>
+      <BOOK>
+         <TITLE>Dracula</TITLE>
+         <AUTHOR>Bram Stoker</AUTHOR>
+         <BINDING>hardcover</BINDING>
+         <PAGES>395</PAGES>
+         <PRICE>$17.95</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>Great Expectations</TITLE>
+         <AUTHOR>Charles Dickens</AUTHOR>
+         <BINDING>mass market paperback</BINDING>
+         <PAGES>639</PAGES>
+         <PRICE>$6.95</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>Percival Keene</TITLE>
+         <AUTHOR>Frederick Marryat</AUTHOR>
+         <BINDING>trade paperback</BINDING>
+         <PAGES>425</PAGES>
+         <PRICE>$12.89</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>Treasure Island</TITLE>
+         <AUTHOR>Robert Louis Stevenson</AUTHOR>
+         <BINDING>trade paperback</BINDING>
+         <PAGES>283</PAGES>
+         <PRICE>$11.85</PRICE>
+      </BOOK>
+      <BOOK>
+         <TITLE>Wuthering Heights</TITLE>
+         <AUTHOR>Emily Bronte</AUTHOR>
+         <BINDING>hardcover</BINDING>
+         <PAGES>424</PAGES>
+         <PRICE>$12.95</PRICE>
+      </BOOK>
+   </CATEGORY>
+</INVENTORY>
