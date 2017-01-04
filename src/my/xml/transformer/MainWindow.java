@@ -53,20 +53,19 @@ public class MainWindow extends javax.swing.JFrame {
         JTreeTab = new javax.swing.JPanel();
         JTreePane = new javax.swing.JScrollPane();
         jTree = new javax.swing.JTree();
-        fileDialogPanel = new javax.swing.JPanel();
-        xmlFilePath = new javax.swing.JTextField();
-        xslFilePath = new javax.swing.JTextField();
-        selectXMLBtn = new javax.swing.JButton();
-        selectXSLBtn = new javax.swing.JButton();
-        clearBtn = new javax.swing.JButton();
-        exportFilesLabel = new javax.swing.JLabel();
+        toolsPane = new javax.swing.JPanel();
         selectFilesLabel = new javax.swing.JLabel();
+        selectXMLBtn = new javax.swing.JButton();
         toHTMLBtn = new javax.swing.JButton();
-        toJSONBtn = new javax.swing.JButton();
-        toPDFBtn = new javax.swing.JButton();
         toXHTMLBtn = new javax.swing.JButton();
+        selectXSLBtn = new javax.swing.JButton();
+        xslFilePath = new javax.swing.JTextField();
+        clearBtn = new javax.swing.JButton();
+        toJSONBtn = new javax.swing.JButton();
+        exportFilesLabel = new javax.swing.JLabel();
+        xmlFilePath = new javax.swing.JTextField();
+        toPDFBtn = new javax.swing.JButton();
         transformBtn = new javax.swing.JButton();
-        imagePanel = new javax.swing.JPanel();
         fileDialogLabel = new javax.swing.JLabel();
         ErrorPane = new javax.swing.JScrollPane();
         errorTable = new javax.swing.JTable();
@@ -81,32 +80,44 @@ public class MainWindow extends javax.swing.JFrame {
         setResizable(false);
 
         tabbedPane.setAutoscrolls(true);
+        tabbedPane.setMaximumSize(new java.awt.Dimension(397, 403));
         tabbedPane.setName("tabbedPane"); // NOI18N
 
+        HTMLTxtPane.setEditable(false);
         HTMLTxtPane.setFont(new java.awt.Font("Trebuchet MS", 0, 13)); // NOI18N
-        HTMLTxtPane.setAutoscrolls(false);
         HTMLtab.setViewportView(HTMLTxtPane);
         HTMLTxtPane.getAccessibleContext().setAccessibleDescription("");
 
         tabbedPane.addTab("HTML", HTMLtab);
 
+        XHTMLTxtPane.setEditable(false);
         XHTMLTxtPane.setFont(new java.awt.Font("Trebuchet MS", 0, 13)); // NOI18N
+        XHTMLTxtPane.setFocusCycleRoot(false);
+        XHTMLTxtPane.setFocusable(false);
+        XHTMLTxtPane.setMaximumSize(new java.awt.Dimension(397, 403));
+        XHTMLTxtPane.setRequestFocusEnabled(false);
+        XHTMLTxtPane.setVerifyInputWhenFocusTarget(false);
         XHTMLtab.setViewportView(XHTMLTxtPane);
 
         tabbedPane.addTab("XHTML", XHTMLtab);
 
+        JSONTxtPane.setEditable(false);
         JSONTxtPane.setFont(new java.awt.Font("Trebuchet MS", 0, 13)); // NOI18N
+        JSONTxtPane.setFocusCycleRoot(false);
+        JSONTxtPane.setFocusable(false);
+        JSONTxtPane.setRequestFocusEnabled(false);
+        JSONTxtPane.setVerifyInputWhenFocusTarget(false);
         JSONTab.setViewportView(JSONTxtPane);
 
         tabbedPane.addTab("JSON", JSONTab);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("empty");
         jTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jTree.setAutoscrolls(true);
         jTree.setCellRenderer(null);
         jTree.setEditable(true);
         jTree.setExpandsSelectedPaths(false);
         jTree.setFocusable(false);
+        jTree.setMaximumSize(new java.awt.Dimension(397, 403));
         jTree.setRequestFocusEnabled(false);
         jTree.setScrollsOnExpand(false);
         jTree.setSelectionModel(null);
@@ -117,16 +128,92 @@ public class MainWindow extends javax.swing.JFrame {
         JTreeTab.setLayout(JTreeTabLayout);
         JTreeTabLayout.setHorizontalGroup(
             JTreeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JTreePane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+            .addComponent(JTreePane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
         );
         JTreeTabLayout.setVerticalGroup(
             JTreeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JTreePane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+            .addComponent(JTreePane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab("JTREE", JTreeTab);
 
-        fileDialogPanel.setFocusable(false);
+        selectFilesLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        selectFilesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        selectFilesLabel.setText("Select XML & XSL files for start");
+        selectFilesLabel.setFocusable(false);
+
+        selectXMLBtn.setText("Select XML");
+        selectXMLBtn.setFocusable(false);
+        selectXMLBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        selectXMLBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        selectXMLBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectXMLBtnActionPerformed(evt);
+            }
+        });
+
+        toHTMLBtn.setText("to HTML");
+        toHTMLBtn.setEnabled(false);
+        toHTMLBtn.setFocusable(false);
+        toHTMLBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        toHTMLBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toHTMLBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toHTMLBtnActionPerformed(evt);
+            }
+        });
+
+        toXHTMLBtn.setText("to XHTML");
+        toXHTMLBtn.setEnabled(false);
+        toXHTMLBtn.setFocusable(false);
+        toXHTMLBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        toXHTMLBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toXHTMLBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toXHTMLBtnActionPerformed(evt);
+            }
+        });
+
+        selectXSLBtn.setText("Select XSL");
+        selectXSLBtn.setFocusable(false);
+        selectXSLBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        selectXSLBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        selectXSLBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectXSLBtnActionPerformed(evt);
+            }
+        });
+
+        xslFilePath.setEditable(false);
+        xslFilePath.setBackground(new java.awt.Color(255, 255, 255));
+        xslFilePath.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        xslFilePath.setFocusable(false);
+
+        clearBtn.setText("Clear all");
+        clearBtn.setFocusable(false);
+        clearBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        clearBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        clearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBtnActionPerformed(evt);
+            }
+        });
+
+        toJSONBtn.setText("to JSON");
+        toJSONBtn.setEnabled(false);
+        toJSONBtn.setFocusable(false);
+        toJSONBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        toJSONBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toJSONBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toJSONBtnActionPerformed(evt);
+            }
+        });
+
+        exportFilesLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        exportFilesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exportFilesLabel.setText("And export to HTML, XHTML, JSON, PDF");
+        exportFilesLabel.setFocusable(false);
 
         xmlFilePath.setEditable(false);
         xmlFilePath.setBackground(new java.awt.Color(255, 255, 255));
@@ -135,165 +222,105 @@ public class MainWindow extends javax.swing.JFrame {
         xmlFilePath.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         xmlFilePath.setFocusable(false);
 
-        xslFilePath.setEditable(false);
-        xslFilePath.setBackground(new java.awt.Color(255, 255, 255));
-        xslFilePath.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        xslFilePath.setFocusable(false);
-
-        selectXMLBtn.setText("Select XML");
-        selectXMLBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectXMLBtnActionPerformed(evt);
-            }
-        });
-
-        selectXSLBtn.setText("Select XSL");
-        selectXSLBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectXSLBtnActionPerformed(evt);
-            }
-        });
-
-        clearBtn.setText("Clear all");
-        clearBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearBtnActionPerformed(evt);
-            }
-        });
-
-        exportFilesLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        exportFilesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exportFilesLabel.setText("And export to HTML, XHTML, JSON, PDF");
-
-        selectFilesLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        selectFilesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        selectFilesLabel.setText("Select XML & XSL files for start");
-
-        toHTMLBtn.setText("to HTML");
-        toHTMLBtn.setEnabled(false);
-        toHTMLBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toHTMLBtnActionPerformed(evt);
-            }
-        });
-
-        toJSONBtn.setText("to JSON");
-        toJSONBtn.setEnabled(false);
-        toJSONBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toJSONBtnActionPerformed(evt);
-            }
-        });
-
         toPDFBtn.setText("to PDF");
         toPDFBtn.setToolTipText("Get XHTML!");
         toPDFBtn.setEnabled(false);
+        toPDFBtn.setFocusable(false);
+        toPDFBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        toPDFBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toPDFBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 toPDFBtnActionPerformed(evt);
             }
         });
 
-        toXHTMLBtn.setText("to XHTML");
-        toXHTMLBtn.setEnabled(false);
-        toXHTMLBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toXHTMLBtnActionPerformed(evt);
-            }
-        });
-
         transformBtn.setText("Transform");
         transformBtn.setEnabled(false);
+        transformBtn.setFocusable(false);
+        transformBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        transformBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         transformBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 transformBtnActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout fileDialogPanelLayout = new javax.swing.GroupLayout(fileDialogPanel);
-        fileDialogPanel.setLayout(fileDialogPanelLayout);
-        fileDialogPanelLayout.setHorizontalGroup(
-            fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fileDialogPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fileDialogPanelLayout.createSequentialGroup()
-                        .addComponent(toHTMLBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(toXHTMLBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(toJSONBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(toPDFBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))
-                    .addGroup(fileDialogPanelLayout.createSequentialGroup()
-                        .addGroup(fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(transformBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(xmlFilePath, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                                .addComponent(xslFilePath)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(selectXMLBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(selectXSLBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(fileDialogPanelLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(selectFilesLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(fileDialogPanelLayout.createSequentialGroup()
-                .addGroup(fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fileDialogPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(exportFilesLabel))
-                    .addGroup(fileDialogPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+        fileDialogLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/xml/transformer/xml_layot.png"))); // NOI18N
+        fileDialogLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        fileDialogLabel.setFocusable(false);
+        fileDialogLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        fileDialogLabel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout toolsPaneLayout = new javax.swing.GroupLayout(toolsPane);
+        toolsPane.setLayout(toolsPaneLayout);
+        toolsPaneLayout.setHorizontalGroup(
+            toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(toolsPaneLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toolsPaneLayout.createSequentialGroup()
+                            .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(transformBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(xslFilePath, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(xmlFilePath))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(selectXMLBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(selectXSLBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap())
+                .addGroup(toolsPaneLayout.createSequentialGroup()
+                    .addGap(10, 10, 10)
+                    .addGroup(toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(fileDialogLabel)
+                        .addGroup(toolsPaneLayout.createSequentialGroup()
+                            .addComponent(toHTMLBtn)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(toXHTMLBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(toJSONBtn)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(toPDFBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, toolsPaneLayout.createSequentialGroup()
+                .addGroup(toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(toolsPaneLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(selectFilesLabel))
+                    .addGroup(toolsPaneLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(exportFilesLabel)))
+                .addGap(24, 24, 24))
         );
-        fileDialogPanelLayout.setVerticalGroup(
-            fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fileDialogPanelLayout.createSequentialGroup()
+        toolsPaneLayout.setVerticalGroup(
+            toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toolsPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(selectFilesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(xmlFilePath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(selectXMLBtn))
                 .addGap(12, 12, 12)
-                .addGroup(fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(xslFilePath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(selectXSLBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clearBtn)
                     .addComponent(transformBtn))
                 .addGap(1, 1, 1)
                 .addComponent(exportFilesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fileDialogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(toolsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(toPDFBtn)
                     .addComponent(toHTMLBtn)
                     .addComponent(toJSONBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(toXHTMLBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fileDialogLabel))
         );
-
-        javax.swing.GroupLayout imagePanelLayout = new javax.swing.GroupLayout(imagePanel);
-        imagePanel.setLayout(imagePanelLayout);
-        imagePanelLayout.setHorizontalGroup(
-            imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        imagePanelLayout.setVerticalGroup(
-            imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
-        );
-
-        fileDialogLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/xml/transformer/xml_layot.png"))); // NOI18N
-        fileDialogLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        fileDialogLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        fileDialogLabel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         errorTable.setModel(errorListenerTable);
         errorTable.setEnabled(false);
@@ -305,38 +332,22 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(ErrorPane)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ErrorPane))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fileDialogPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(fileDialogLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(imagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addComponent(toolsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, 0)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(fileDialogPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fileDialogLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(imagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ErrorPane, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(toolsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ErrorPane, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         tabbedPane.getAccessibleContext().setAccessibleName("HTMLtab");
@@ -347,23 +358,6 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private String saveFile(String ext, String file) {
-        String fullpath = new FileDialog().openFileSelectDialog(ext, this) + "." + ext;
-        
-        try {
-            Files.write(Paths.get(fullpath), file.getBytes(), StandardOpenOption.CREATE);
-        } catch (IOException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return fullpath;
-    }
-    
-    private void toXHTMLBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toXHTMLBtnActionPerformed
-        xhtmlFP = saveFile("xhtml", xhtml);
-        this.toPDFBtn.setEnabled(true);
-    }//GEN-LAST:event_toXHTMLBtnActionPerformed
 
     //Use iText library for PDF transform
     private void toPDFBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toPDFBtnActionPerformed
@@ -388,44 +382,14 @@ public class MainWindow extends javax.swing.JFrame {
         saveFile("json", json);
     }//GEN-LAST:event_toJSONBtnActionPerformed
 
+    private void toXHTMLBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toXHTMLBtnActionPerformed
+        xhtmlFP = saveFile("xhtml", xhtml);
+        this.toPDFBtn.setEnabled(true);
+    }//GEN-LAST:event_toXHTMLBtnActionPerformed
+
     private void toHTMLBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toHTMLBtnActionPerformed
         saveFile("html", html);
     }//GEN-LAST:event_toHTMLBtnActionPerformed
-
-    private void clearFlds(){
-        this.xmlFilePath.setText("");
-        this.xslFilePath.setText("");
-        xmlFP = xslFP = "";   
-    }
-    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
-        clearFlds();
-        setActiveTransformBtns(false);
-        this.toPDFBtn.setEnabled(false);
-        this.HTMLTxtPane.setText("");
-        this.XHTMLTxtPane.setText("");
-        this.JSONTxtPane.setText("");
-        this.jTree.setModel(null);
-    }//GEN-LAST:event_clearBtnActionPerformed
-
-    private void selectXSLBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectXSLBtnActionPerformed
-        xslFP = new FileDialog().openFileSelectDialog("xsl", this);
-
-        if(!"".equals(xslFP)){
-            this.xslFilePath.setText(xslFP);
-            if(!"".equals(xmlFP))
-                this.transformBtn.setEnabled(true);
-        }
-    }//GEN-LAST:event_selectXSLBtnActionPerformed
-
-    private void selectXMLBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectXMLBtnActionPerformed
-        xmlFP = new FileDialog().openFileSelectDialog("xml", this);
-
-        if(!"".equals(xmlFP)){
-            this.xmlFilePath.setText(xmlFP);
-            if(!"".equals(xslFP))
-                this.transformBtn.setEnabled(true);
-        }
-    }//GEN-LAST:event_selectXMLBtnActionPerformed
 
     private void transformBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transformBtnActionPerformed
         // get and show the results
@@ -442,12 +406,59 @@ public class MainWindow extends javax.swing.JFrame {
 
         JTreeParser parser = new JTreeParser();
         this.jTree.setModel(parser.parse(xmlFP));
-        
+
         setActiveTransformBtns(true);
         this.transformBtn.setEnabled(false);
         clearFlds();
     }//GEN-LAST:event_transformBtnActionPerformed
+
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        clearFlds();
+        setActiveTransformBtns(false);
+        this.toPDFBtn.setEnabled(false);
+        this.HTMLTxtPane.setText("");
+        this.XHTMLTxtPane.setText("");
+        this.JSONTxtPane.setText("");
+        this.jTree.setModel(null);
+    }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void selectXSLBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectXSLBtnActionPerformed
+        xslFP = new FileDialog().openFileSelectDialog("xsl", this);
+
+        if(!"".equals(xslFP)){
+            this.xslFilePath.setText(xslFP);
+            if(!"".equals(xmlFP))
+            this.transformBtn.setEnabled(true);
+        }
+    }//GEN-LAST:event_selectXSLBtnActionPerformed
+
+    private void selectXMLBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectXMLBtnActionPerformed
+        xmlFP = new FileDialog().openFileSelectDialog("xml", this);
+
+        if(!"".equals(xmlFP)){
+            this.xmlFilePath.setText(xmlFP);
+            if(!"".equals(xslFP))
+            this.transformBtn.setEnabled(true);
+        }
+    }//GEN-LAST:event_selectXMLBtnActionPerformed
+
+    private String saveFile(String ext, String file) {
+        String fullpath = new FileDialog().openFileSelectDialog(ext, this) + "." + ext;
         
+        try {
+            Files.write(Paths.get(fullpath), file.getBytes(), StandardOpenOption.CREATE);
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return fullpath;
+    }
+    
+    private void clearFlds(){
+        this.xmlFilePath.setText("");
+        this.xslFilePath.setText("");
+        xmlFP = xslFP = "";   
+    }        
     private void setActiveTransformBtns(boolean mode)
     {
         this.toHTMLBtn.setEnabled(mode);
@@ -499,8 +510,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable errorTable;
     private javax.swing.JLabel exportFilesLabel;
     private javax.swing.JLabel fileDialogLabel;
-    private javax.swing.JPanel fileDialogPanel;
-    private javax.swing.JPanel imagePanel;
     private javax.swing.JTree jTree;
     private javax.swing.JLabel selectFilesLabel;
     private javax.swing.JButton selectXMLBtn;
@@ -510,6 +519,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton toJSONBtn;
     private javax.swing.JButton toPDFBtn;
     private javax.swing.JButton toXHTMLBtn;
+    private javax.swing.JPanel toolsPane;
     private javax.swing.JButton transformBtn;
     private javax.swing.JTextField xmlFilePath;
     private javax.swing.JTextField xslFilePath;
